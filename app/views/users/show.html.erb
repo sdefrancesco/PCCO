@@ -1,0 +1,87 @@
+
+<div class="jumbotron customheight shadow" style="padding-top:120px;">
+<div class="container">
+<% if @user.avatar.blank? %>
+<h1 class="roboto white"><span class="glyphicon glyphicon-user"></span> <%= @user.first_name.titleize  %> <b><%= @user.last_name.titleize %></b></h1><br>
+<% else %>
+<h1 class="roboto white"><%= image_tag @user.avatar.url(:thumb), :class => 'shadow, img-thumbnail' %> <%= @user.first_name.titleize  %> <b><%= @user.last_name.titleize %></b></h1>
+<% end %>
+<h1 class="roboto">5,321</h1>
+<h5><span class="glyphicon glyphicon-envelope"></span><%= @user.email %></h4>
+<h5><%= @user.username %></h4>
+<h5><%= @user.birthday%></h4>
+<h5><span class="glyphicon glyphicon-time"><%= @user.last_sign_in_at %></h4>
+<h5><%= @user.last_sign_in_ip %></h4>
+</div>
+</div>
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-12 text-right">
+	<div class="container">
+		<button class="btn btn-primary btn-custom monter btn-lg" style="width:auto; height:40px;"><span class="glyphicon glyphicon-plus"></span> Follow <%= @user.first_name.titleize %></button>
+		</div>
+	</div>
+<div class="col-md-2 col-sm-3">
+	<div class="panel panel-default shadow">
+		<div class="panel-heading"><h6>About <b><%= @user.first_name.titleize %></b></h6></div>
+		<div class="panel-body" style="height:500px">
+			<% if @user.about.blank? %>
+			<p>I will fill this out later :).</p>
+			<% else %>
+			
+			<p><%= @user.about %></p>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<div class="col-sm-9 col-md-7">
+	<div class="panel panel-default shadow">
+	<div class="panel-heading">
+
+	<h6 class="text-muted "><%= @user.first_name.titleize %>'s Contributions</h6></div>
+	<div class="panel-body">
+	<h6 class="text-muted roboto"><b><%= @user.first_name.titleize %></b> has <b><%= @user_artistuploads.count %></b> upload(s).</h6><hr>
+	<% @user_artistuploads.each_slice(3) do |row| %>
+
+		<div class="row">
+
+		</div>
+		<div class="panel-body">
+		 
+				<% row.each do |artistupload| %>
+			<div class="col-sm-4">
+
+				<div class="panel panel-default panel-bodycustom shadow">
+				<div class="panel-heading roboto">
+				<%= link_to artistupload.title, artistupload_path(artistupload) %>
+				</div>
+				<div class="panel-body panel-bodycustom">
+				<%= image_tag artistupload.image.url(:medium), :class => 'img img-responsive' %>
+				</div>
+				</div>
+			</div>
+		<% end %>
+
+		</div>
+	
+	<% end %>
+	</div>
+	</div>
+</div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

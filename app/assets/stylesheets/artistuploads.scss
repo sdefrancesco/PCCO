@@ -1,0 +1,13 @@
+// Place all the styles related to the artistuploads controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.video-bg {
+	background:url("mountain.jpeg");
+	background-size:cover;
+	-webkit-background-filter: blur(3px);
+	background-filter: blur(3px);
+	height:100%;
+	padding-top:80px;
+}

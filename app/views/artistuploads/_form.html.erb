@@ -1,0 +1,14 @@
+<%= simple_form_for(@artistupload) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  	<%= f.file_field :image %>
+    <%= f.input :title %>
+    <%= f.input :inspiration %>
+    <%= f.input :description %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

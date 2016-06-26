@@ -1,0 +1,169 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+
+.roboto {
+	font-family:"Roboto", sans-serif;
+	font-weight:100;
+}
+
+.shadow {
+	-webkit-box-shadow: -5px -2px 39px -10px rgba(0,0,0,0.75);
+-moz-box-shadow: -5px -2px 39px -10px rgba(0,0,0,0.75);
+box-shadow: -5px -2px 39px -10px rgba(0,0,0,0.75);
+}
+
+
+.footer {
+	width:100%;
+	background-color:gray;
+	height:400px;
+}
+
+.oswald {
+	font-family:"Oswald", sans-serif;
+	font-weight:100;
+}
+
+.textshadow {
+text-shadow: -1px 0px 6px rgba(150, 150, 150, 1);
+}
+
+.navbar {
+	font-family:"montserrat-regular", sans-serif;
+	font-weight:100;
+	color:white;
+	font-size:12px;
+	transition-duration:1s;
+
+}
+
+.hover {
+	transition-duration:1s;
+}
+
+.btn-custom {
+	width:auto;
+	font-size:12px;
+	padding-right:10px;
+	padding-left:10px;
+}
+
+.monter {
+	font-family:"montserrat-regular", sans-serif;
+}
+
+.btn-primary {
+	background-color:#4DA0E7;
+	border:none;
+	width:auto;
+
+}
+
+.navbar-inverse {
+	background-color:transparent;
+	border:none;
+}
+
+.preloader {
+	position:fixed;
+	overflow-y:hidden;
+	background-color:black;
+	width:100%;
+	height:100%;
+}
+
+.panel-custom {
+	padding-left:0px;
+	padding-right:0px;
+	padding-top:0px;
+	padding-bottom:15px;
+}
+
+.full-width {
+	width:100%;
+}
+
+.max-width {
+	max-width:600px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.overlay {
+	box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+}
+
+.ghost-button {
+ color: #fff;
+ background: transparent;
+ border: 1px solid #009688;
+ font-size: 14px;
+ padding: 7px 12px;
+ font-weight: normal;
+ margin: 6px 0;
+ margin-right: 12px;
+ display: inline-block;
+ text-decoration: none;
+ font-family: 'Open Sans', sans-serif;
+ min-width: 120px;
+ transition:all, ease-in-out, 1s;
+ -webkit-transition:all, ease-in-out, 1s;
+}
+
+.ghost-button:hover, .ghost-button:active {
+  color:#fff;
+  background:#009688;
+}
+
+.btn {
+	width:auto;
+}
+
+.customheight {
+	height:600px;
+}
+
+.panel-bodycustom {
+	padding-left:0px;
+	padding-right:0px;
+	padding-bottom:0px;
+	padding-top:0px;
+}
+
+
+.blackbox {
+	width:100%;
+	height:100%;
+	position:fixed;
+	overflow-y:hidden;
+	background-color:black;
+	z-index:9999;
+}
+
+p, ul {
+	font-size:12px;
+	font-family:'montserrat', sans-serif;
+}
+
+.yellow {
+	color:#FCC72C;
+}
+
+

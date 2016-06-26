@@ -1,0 +1,20 @@
+// Place all the styles related to the Artist_Uploads controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.shadow {
+	-webkit-box-shadow: -5px -2px 39px -10px rgba(0,0,0,0.75);
+-moz-box-shadow: -5px -2px 39px -10px rgba(0,0,0,0.75);
+box-shadow: -5px -2px 39px -10px rgba(0,0,0,0.75);
+}
+
+
+.birdimg {
+	background:url('bird.jpg');
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:fixed;
+
+}

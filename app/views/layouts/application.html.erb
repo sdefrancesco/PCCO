@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Postcardcor</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Oswald:400,300' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,300' rel='stylesheet' type='text/css'>
+  
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="css/animate.css">
+  <!-- Icomoon Icon Fonts-->
+  <link rel="stylesheet" href="css/icomoon.css">
+  <!-- Bootstrap  -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <!-- Superfish -->
+  <link rel="stylesheet" href="css/superfish.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+
+  <!-- Modernizr JS -->
+  <script src="js/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to 'POST Card Co', root_path, :class => 'navbar-brand' %>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to 'Explore', '/artistuploads' %></li>
+            <li><%= link_to 'Create', "/about" %></li>
+            <li><a><span class="glyphicon glyphicon-search"></span></a></li>
+            
+            
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            
+            <% if user_signed_in? %>
+            <li><a><span class="glyphicon glyphicon-send"></span></a></li>
+            <li><a><span class="glyphicon glyphicon-envelope"></span></a></li>
+            <li><a><span class="glyphicon glyphicon-globe"></span></a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" style="margin-right:5px;"></span><%= current_user.email %><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+					<li><%= link_to 'Log Out', destroy_user_session_path, :method => :delete %></li>
+					<li><%= link_to 'Account Settings', edit_user_registration_path %></li>
+					<li><%= link_to 'profile', current_user %></li>
+                </ul>
+                </li>
+             <% else %>
+             	<li><%= link_to 'Sign In', new_user_session_path %></li>
+             	<li>
+                <div style="margin-top:7px;">
+                 <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary btn-custom' %></btn>
+                </div>
+              </li>
+             <% end %>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+
+	<%= yield %>
+
+<footer>
+      <div id="footer">
+        <div class="container">
+          <div class="row">
+          <img style="width:auto; height:200px; margin-left:auto; margin-right:auto" class=" img-responsive text-center" src="/assets/postcardcologofix.png" />
+            <div class="col-md-6 col-md-offset-3 text-center">
+              
+              <h6>Copyright 2016 <a href="#">POST Card Co</a>.<br> <b class="text-muted">Mail is for the birds post is for the people </b> <br> All Rights Reserved.</h6> 
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+
+<script>
+  
+  
+  
+  $(document).ready(function(){
+
+  
+    
+    
+   
+    $(".blackbox").fadeOut(500);
+
+
+      
+    $(window).scroll(function(){
+      if ( $(window).scrollTop() > 60 ) {
+          $('.navbar-inverse').css('background-color', '#222831');
+          $('.navbar-inverse').addClass('shadow');
+        } else {
+          $('.navbar-inverse').css("background-color", "transparent");
+          $('.navbar-inverse').removeClass('shadow');
+        };
+    
+    });
+    
+  });
+
+
+
+    
+
+    
+
+    
+</script>
+</body>
+</html>

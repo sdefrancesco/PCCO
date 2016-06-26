@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+<div class="container" style="margin-top:50px;">
+	<div class="row">
+		<div class="col-sm-8">
+			<div class="panel panel-default shadow">
+			<div class="panel-heading">
+				<h1 class="roboto"><%=@artistupload.title.titleize %></h1>
+				<h6><span class="text-muted">Artwork By</span> <%= @artistupload.user.first_name.titleize %> <%= @artistupload.user.last_name.titleize %></h6></div>
+				<div class="panel-body">
+				<%= image_tag @artistupload.image.url(:large), :class => 'img img-responsive' %><br>
+				<span style="margin-right:7px; font-size:25px; margin-bottom:15px;" class="glyphicon glyphicon-thumbs-up"></span>
+				<span style="margin-right:7px; font-size:25px;" class="glyphicon glyphicon-thumbs-down"></span>
+				<span style="margin-right:7px; font-size:25px;" class="glyphicon glyphicon-eye-open"></span><br>
+				<p><%= @artistupload.description %></p>
+				</div>
+			</div>
+
+			
+		</div>
+		<div class="col-sm-4">
+			<div class="panel panel-default shadow">
+				<div class="panel-heading"><h5>Artwork Stats</h5></div>
+				<div class="panel-body">
+					<span class="glyphicon glyphicon-eye-open"></span><br>
+					<span class="glyphicon glyphicon-heart-empty"></span><br>
+					<span class="glyphicon glyphicon-thumbs-up"></span><br>
+					<span class="glyphicon glyphicon-thumbs-down"></span><br>
+					
+
+				</div>
+
+			</div>
+			<div class="panel panel-default shadow">
+				<div class="panel-heading"><h5>More About This Piece</h5></div>
+				<div class="panel-body">
+					<h6 class="text-muted">Description</h6>
+					<p><%= @artistupload.description %></p>
+
+				</div>
+
+			</div>
+
+
+
+
+		</div>
+
+
+	</div>
+
+
+
+	<hr>
+
+	<%= link_to 'Edit', edit_artistupload_path(@artistupload) %> |
+	<%= link_to 'Back', artistuploads_path %>
+
+	<hr>
+</div>

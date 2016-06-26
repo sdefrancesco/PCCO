@@ -1,0 +1,48 @@
+<div class="jumbotron">
+<h1 class="roboto white">All Of Our Artists</h1>
+<h4 class="text-muted">Below, is all of our artists.</h4>
+</div>
+
+<% @user.each_slice(3) do |slice| %>
+	<div class="row">
+		<div class="col-sm-7">
+			<% slice.each do |user| %>
+
+				<div class="panel panel-default shadow">
+				<div class="panel-heading panelheading white">
+
+					<% if user.first_name.blank? %>
+						<h1 class="roboto"><%= link_to 'John Doe', user %></h1>
+					<% else %>
+					<h1 class="roboto"><%= link_to user.first_name.titleize, user %> <%= user.last_name.titleize %></h1>
+					<% end %>
+				</div>
+				<div class="panel-body">
+					<div class="col-sm-2">
+						<% if user.avatar.blank? %>
+						<span style="font-size:50px" class="text-center glyphicon glyphicon-user"></span>
+					<% else %>
+					
+						<%= image_tag user.avatar.url(:thumb), :class => " img-thumbnail" %>	
+						<% end %>
+					</div>
+					<div class="col-sm-5">
+						<h5><%= user.email %></h5>
+						<h5><%= user.last_sign_in_at %></h5>
+					</div>
+
+				
+			
+			
+				
+				
+			
+			</div>
+			</div>
+			<% end %>
+		</div>
+	</div>	
+	
+	
+	
+<% end %>

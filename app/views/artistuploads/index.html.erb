@@ -1,0 +1,102 @@
+<div class="blackbox animated fadeOut"></div>
+<div class="jumbotron customheight overlay shadow">
+  <div class="container" style="padding-top:80px;">
+    <p class ="roboto" id="notice"><%= notice %></p>
+
+    <h1 class="roboto"><span style=" font-size: 45px; margin-right:15px; color: #FCC72C;"class="glyphicon glyphicon-send"></span>Artist Uploads</h1>
+    <h4 class="roboto">The Latest & Greatest, From our Artists.</h4>
+    <% if user_signed_in? %>
+      <btn class="btn btn-primary">Add New Artwork</btn>
+    <% else %>
+      <btn class="btn btn-primary">Sign Up </btn>
+      <btn class="btn btn-primary">Log In</btn>
+    <% end %>
+  </div>
+</div>
+<br>
+<section class="container-fluid text-center">
+  <div class="container">
+  <img style="width:auto; height:100px; margin-left:auto; margin-right:auto" class=" img img-responsive" src="/assets/postcardcologofix.png" />
+    <h1 class="roboto">Want To Become One Of Our Artists?</h1>
+    
+    <h4 class="monter">Get <b class="yellow">Paid</b> to <b>create</b> now with POST Card Co!</h4></div>
+    <h6 class="text-muted">Learn about earning money while contributing as a postcardco artist.</h6>
+
+    <br>
+    <button class="btn btn-primary btn-lg roboto">
+      Learn More
+    </button>
+    <hr>
+  </div>
+</section>
+<div class="container-fluid">
+<h5 class="roboto text-muted">There Are <b><%= @artistuploads.count %></b> Uploads and Counting! <b class="yellow">Join The Community!</b></h5><hr>
+<% @artistuploads.each_slice(4) do |row| %>
+  <div class="row"> <!-- Each row of my Grid -->
+  <% row.each do |artistupload| %>
+    <!-- Each item in my grids row -->
+    <div class="col-sm-4 col-md-3">
+    <div class="panel panel-default someclass shadow">
+    <div class="panel-heading">
+      <h3 class="roboto"><%= artistupload.title.titleize %></h3>
+      
+      <h6 class="text-muted"><span class="glyphicon glyphicon-user yellow" style="margin-right:5px;"></span><%= artistupload.user.first_name.titleize %> <%= artistupload.user.last_name.titleize%><small class=" text-muted pull-right">date</small></h6>
+
+      </div>
+
+    <div class="panel-body panel-custom">
+      
+      
+      <%= image_tag artistupload.image.url(:medium), :class => 'img img-responsive full-width' %>
+      <span class="glyphicon glyphicon-heart-empty textshadow"></span>
+      <span class="glyphicon glyphicon-thumbs-up textshadow"></span>
+      <span class="glyphicon glyphicon-thumbs-down textshadow"></span>
+      <span class="glyphicon glyphicon-eye-open textshadow"></span>
+      <br>
+      <% if user_signed_in? %>
+        <div class="container-fluid">
+          <button class="btn btn-primary" style="width:100%">
+            <span class="glyphicon glyphicon-plus"></span>
+              Add To My Cards
+          </button>
+          <button class="btn btn-primary" style="width:100%; margin-bottom:10px; margin-top:10px">
+            <span class="glyphicon glyphicon-pencil"></span>
+              Edit This Card
+          </button>
+        </div>
+      <% else %>
+      <h6 class="text-muted"> You Are Not signed in. </h1>
+      <% end %>
+        
+        <%= link_to 'Show', artistupload %>
+        <%= link_to 'Edit', edit_artistupload_path(artistupload) %>
+        <%= link_to 'Destroy', artistupload, method: :delete, data: { confirm: 'Are you sure?' } %>
+     
+</div>
+</div>
+    </div>
+
+  <% end %>
+  </div>
+<% end %>
+
+
+
+<br>
+
+<%= link_to 'New Artistupload', new_artistupload_path, :class => 'btn btn-primary' %>
+
+<hr>
+</div>
+
+
+
+<script>
+  $(document).ready(function(){
+    $(".blackbox").fadeOut(500);
+    
+  });
+
+</script>
+
+
